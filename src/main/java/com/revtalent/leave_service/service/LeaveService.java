@@ -102,7 +102,8 @@ public class LeaveService {
         LeaveAppliedEvent event = LeaveAppliedEvent.builder()
                 .leaveId(saved.getId())
                 .employeeId(saved.getEmployee().getId())
-                .employeeName(saved.getEmployee().getUser().getName())
+                .employeeName(saved.getEmployee().getUser() != null ?
+                        saved.getEmployee().getUser().getName() : "Unknown")
                 .leaveType(saved.getLeaveType().name())
                 .startDate(saved.getStartDate())
                 .endDate(saved.getEndDate())

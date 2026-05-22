@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/calendar")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+
 public class CalendarController {
 
     private final LeaveRequestRepository leaveRequestRepository;
