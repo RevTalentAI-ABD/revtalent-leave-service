@@ -39,18 +39,10 @@ public class LeaveRequest {
     private BigDecimal totalDays = BigDecimal.ZERO;
 
     @Enumerated(EnumType.STRING)
-    private Status status = Status.PENDING_MANAGER;
+    private Status status = Status.APPLIED;
 
     private String reason;
     private String rejectionReason;
-    private String rejectedByRole; // MANAGER or HR_ADMIN
-    private String approveComment;
-
-    private Long managerId;
-    private LocalDateTime managerActionAt;
-    
-    private Long hrId;
-    private LocalDateTime hrActionAt;
 
     private LocalDateTime appliedAt;
     private LocalDateTime actionedAt;
@@ -58,20 +50,6 @@ public class LeaveRequest {
     @PrePersist
     protected void onCreate() { appliedAt = LocalDateTime.now(); }
 
-    @Column(name = "applicant_role")
-    private String applicantRole; // "EMPLOYEE" or "MANAGER"
-
-    /**
-     * Only 3 leave types are supported.
-     * - CASUAL  : 5 days/year  – for short personal errands
-     * - SICK    : 10 days/year – for medical reasons
-     * - ANNUAL  : 15 days/year – planned vacation
-     *
-     * Approval rules:
-     *   EMPLOYEE leave → approved/rejected by MANAGER
-     *   MANAGER  leave → approved/rejected by HR_ADMIN
-     */
-    public enum LeaveType { CASUAL, SICK, ANNUAL }
-
-    public enum Status { PENDING_MANAGER, PENDING_HR, APPROVED, REJECTED, CANCELLED }
+    public enum LeaveType { ANNUAL, SICK, CASUAL, MATERNITY, PATERNITY, UNPAID }
+    public enum Status { APPLIED, APPROVED, REJECTED, CANCELLED }
 }

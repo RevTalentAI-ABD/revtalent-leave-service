@@ -1,15 +1,10 @@
-
 package com.revtalent.leave_service.dto;
 
-import lombok.Builder;
-import lombok.Data;
-
+import lombok.*;
 import java.time.LocalDate;
 
-@Data
-@Builder
+@Data @Builder
 public class LeaveResponse {
-
     private Long id;
     private String leaveType;
     private String status;

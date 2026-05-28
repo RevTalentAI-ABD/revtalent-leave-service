@@ -25,17 +25,15 @@ public class LeaveBalance {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "leave_type", nullable = false,
-            columnDefinition = "ENUM('CASUAL','SICK','ANNUAL')")
+            columnDefinition = "ENUM('ANNUAL','SICK','CASUAL','MATERNITY','PATERNITY','UNPAID')")
     private LeaveRequest.LeaveType leaveType;
 
     @Column(nullable = false)
     private Integer year;
 
-    @Builder.Default
     @Column(name = "total_days", nullable = false, precision = 5, scale = 1)
     private BigDecimal totalDays = BigDecimal.ZERO;
 
-    @Builder.Default
     @Column(name = "used_days", nullable = false, precision = 5, scale = 1)
     private BigDecimal usedDays = BigDecimal.ZERO;
 }
