@@ -4,7 +4,7 @@ The **Leave Service** manages employee time-off requests, approval/rejection pip
 
 ---
 
-## 🔄 Business & Event Workflow
+##  Business & Event Workflow
 
 The leave tracking lifecycle is driven by synchronous updates combined with asynchronous message publishing:
 
@@ -60,7 +60,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ Dependencies Added
+##  Dependencies Added
 
 The service uses the following libraries in its `pom.xml`:
 
